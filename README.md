@@ -58,6 +58,8 @@ docker-compose down
 ### 🏠 Home Page  
 ![Home Page](https://raw.githubusercontent.com/srushtisshiraganvi/zepto-docker/main/src/screenshots/home-page.png)
 
+### Footer
+![Footer Page](https://raw.githubusercontent.com/srushtisshiraganvi/zepto-docker/main/src/screenshots/footer.png)
 
 
 ---
