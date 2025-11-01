@@ -57,7 +57,7 @@ docker-compose down
 
 ```
 ### 🏠 Home Page
-![Home Page](https://github.com/srushtisshiraganvi/zepto-docker/blob/main/Screenshot%202025-11-01%20201538.png)
+![Home Page](https://github.com/srushtisshiraganvi/zepto-docker/blob/main/src/screenshots/home-page.png)
 
 ```
 
