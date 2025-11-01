@@ -55,11 +55,10 @@ docker-compose down
 
 ## 📸 Screenshots  
 
-```
-### 🏠 Home Page
-![Home Page](https://github.com/srushtisshiraganvi/zepto-docker/blob/main/src/screenshots/home-page.png)
+### 🏠 Home Page  
+![Home Page](https://raw.githubusercontent.com/srushtisshiraganvi/zepto-docker/main/src/screenshots/home-page.png)
 
-```
+
 
 ---
 
