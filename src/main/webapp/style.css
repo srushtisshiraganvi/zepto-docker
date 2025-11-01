@@ -57,6 +57,18 @@ body {
   border: 1px solid var(--border);
   cursor: pointer;
   text-align: center;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.category:hover {
+  background: #f3e8ff;
+  transform: scale(1.03);
+}
+
+.category.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
 }
 
 .products-grid {
@@ -72,6 +84,11 @@ body {
   overflow: hidden;
   text-align: center;
   padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 .card img {
@@ -95,4 +112,16 @@ button.add {
   padding: 6px 12px;
   margin-top: 8px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+button.add:hover {
+  background: #7e22ce;
+}
+footer {
+  text-align: center;
+  padding: 12px 0;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
 }

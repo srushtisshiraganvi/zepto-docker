@@ -3,37 +3,412 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zepto Clone</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Zepto Static Demo</title>
+  <style>
+    :root {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      --primary: #a020f0;
+      --accent: #ff4081;
+    }
+    body {
+      margin: 0;
+      background: #fff;
+      color: #222;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fff;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      padding: 10px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    header input {
+      width: 400px;
+      padding: 10px 15px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    header .icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    /* CATEGORY BAR */
+    .categories {
+      display: flex;
+      overflow-x: auto;
+      padding: 15px 40px;
+      gap: 25px;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+    }
+    .category {
+      text-align: center;
+      min-width: 150px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .category:hover {
+      transform: scale(1.05);
+    }
+    .category img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .category p {
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 30px 40px;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .products {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+    }
+    .product {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 10px;
+      width: 160px;
+      flex: 0 0 auto;
+    }
+    .product img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+    }
+    .product h3 {
+      font-size: 14px;
+      margin: 6px 0;
+    }
+    .product p {
+      font-size: 12px;
+      color: #777;
+      margin: 0;
+    }
+    .product .price {
+      font-weight: bold;
+      color: green;
+      margin-top: 5px;
+    }
+    .add-btn {
+      display: block;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      width: 100%;
+      border-radius: 6px;
+      margin-top: 8px;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #fafafa;
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-top: 1px solid #eee;
+    }
+    footer .left p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    footer .right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    footer .store-btn {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 8px 12px;
+      background: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
+
+  <header>
     <div class="logo">zepto</div>
-    <div class="search-box">
-      <input type="text" placeholder='Search for "chocolate box"'>
-    </div>
+    <input type="text" placeholder="Search for products...">
     <div class="icons">
-      <a href="#">Login</a> | <a href="#">Cart</a>
+      <span>Login</span>
+      <span>Cart 🛒</span>
     </div>
   </header>
 
-  <section class="categories">
-    <h2>Shop by Category</h2>
-    <div class="category-list">
-      <div class="category">Fresh Fruits</div>
-      <div class="category">Fresh Veggies</div>
-      <div class="category">Leafy & Herbs</div>
-      <div class="category">Exotics</div>
-      <div class="category">Organic</div>
-      <div class="category">Cut & Sprouts</div>
+  <div class="categories">
+    <div class="category"><img src="https://cdn.zeptonow.com/production/cms/category/38047553-95f3-47c6-a1ff-4794e1227d3a.png"><p>Fruits & Vegetables</p></div>
+    <div class="category"><img src="https://cdn.zeptonow.com/production/cms/category/474e6e58-1894-4378-86f1-168cc7266d1a.png"><p>Dairy, Bread & Eggs</p></div>
+    <div class="category"><img src="https://cdn.zeptonow.com/production/cms/category/dc4a299d-521f-4a64-8205-c5ba8e1d13e3.png"><p>Atta, Rice, Oil & Dals</p></div>
+    <div class="category"><img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1165-1500,pr-true,f-auto,q-80/cms/product_variant/af03b0f6-5d00-444c-a87e-486148a05693.png"><p>Snacks & Munchies</p></div>
+    <div class="category"><img src="https://cdn.zeptonow.com/production/tr:w-120,ar-156-232,pr-true,f-auto,q-80/inventory/banner/b845cc10-b583-400f-9f99-34ae5b5a8ada.png"><p>Beauty & Hygiene</p></div>
+    <div class="category"><img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2000-2001,pr-true,f-auto,q-80/cms/product_variant/f8dcc0ae-261f-4263-8c3c-92a13b3c979f.jpeg"><p>Cleaning Essentials</p></div>
+    <div class="category"><img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/dcef9289-c2ad-4a1c-9b33-d78507e36ac9.jpeg"><p>Electronics</p></div>
+    <div class="category"><img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/605433fd-bfe4-49b7-a4ed-220678ad5b93.jpg"><p>Frozen & Ice Creams</p></div>
+  </div>
+
+  <!-- Example Sections -->
+  <div class="section">
+    <h2>Fruits & Vegetables</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1024-1024,pr-true,f-auto,q-80/cms/product_variant/fb03fb4d-6717-4ee9-98fc-5079990962ca.jpeg">
+        <h3>Fresh Apples</h3>
+        <p>1kg Pack</p>
+        <div class="price">₹120</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/c1090b9c-d3f9-43d9-a46e-70ff482990b2.jpeg">
+        <h3>Bananas</h3>
+        <p>1 Dozen</p>
+        <div class="price">₹60</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1024-1024,pr-true,f-auto,q-80/cms/product_variant/9bbe27ed-ce8c-4fad-a125-8c35e05317e2.jpeg">
+        <h3>Brinjal</h3>
+        <p>500 g</p>
+        <div class="price">₹42</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1024-1024,pr-true,f-auto,q-80/cms/product_variant/ec30e9f1-6953-41b3-a71e-e737a79303cd.jpeg">
+        <h3>Carrot</h3>
+        <p>250 g</p>
+        <div class="price">₹21</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1024-1024,pr-true,f-auto,q-80/cms/product_variant/6d494c54-fb8e-4dd3-a339-ddfda93075fc.jpeg">
+        <h3>Baby Orange</h3>
+        <p>500 g</p>
+        <div class="price">₹160</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/fb069e9b-7616-4a89-b363-a292123554c6.jpeg">
+        <h3>Kivi Green</h3>
+        <p>3 pcs</p>
+        <div class="price">₹89</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/ac9d96c0-230e-4308-a82f-be8d676d570c.jpeg">
+        <h3>Mint leaves</h3>
+        <p>100 g</p>
+        <div class="price">₹11</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/7f62bac8-cfd5-4871-b806-608b16de685c.jpeg">
+        <h3>Mushroom Button</h3>
+        <p>200 g</p>
+        <div class="price">₹54</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
     </div>
-  </section>
+  </div>
+  
 
-  <section class="products">
-    <h2>Fresh Arrivals</h2>
-    <div class="products-grid"></div>
-  </section>
+  <div class="section">
+    <h2>Household Cleaning</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/74deee26-1883-46ad-b4b9-c9678da19b78.jpeg">
+        <h3>Vim Dishwash Gel</h3>
+        <p>500ml</p>
+        <div class="price">₹99</div>
+        <button class="add-btn">ADD</button>
+      </div>
 
-  <script src="script.js"></script>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1280-1280,pr-true,f-auto,q-80/cms/product_variant/3cee0724-fa4f-4065-8541-986f77a076dd.jpeg">
+        <h3>Harpic Bathroom Cleaner</h3>
+        <p>3 pcs 3L</p>
+        <div class="price">₹555</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/2f47eab6-1699-481e-8c1c-124993d0c32a.jpeg">
+        <h3>Colin Glass Cleaner</h3>
+        <p>500ml</p>
+        <div class="price">₹89</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/12603bdb-366e-403e-82b5-7b497987d2da.jpeg">
+        <h3>Disinfectant Phenyl</h3>
+        <p>1L</p>
+        <div class="price">₹70</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-463-1500,pr-true,f-auto,q-80/inventory/product/58dd18cb-3577-4cc5-ba01-30e075bb2e78-85655212.jpeg">
+        <h3>Odomos Mosquito Repellent</h3>
+        <p>100ml</p>
+        <div class="price">₹120</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+
+       <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/428f1613-3898-498e-a579-d991da67b0a2.jpeg">
+        <h3>Mr.muscle Kitchen Cleaner</h3>
+        <p>450ml</p>
+        <div class="price">₹130</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+       <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/70086e4b-8b4b-41bb-8931-ea48c57f0219.jpeg">
+        <h3>Gala Quick Spin mop</h3>
+        <p>1 pc</p>
+        <div class="price">₹1090</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+       <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1021-1021,pr-true,f-auto,q-80/cms/product_variant/0d41774a-e4eb-4c5e-8914-87b0278a7f98.jpeg">
+        <h3>Microfiber cleaning duster</h3>
+        <p>1 pc</p>
+        <div class="price">₹89</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      
+
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Electronics</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/9249ecf5-9d08-4b03-8597-953c61eb8ada.jpeg">
+        <h3>LED Bulb</h3>
+        <p>9W White Light</p>
+        <div class="price">₹143</div>
+        <button class="add-btn">ADD</button>
+      </div>
+      
+      <div class="product">
+        <img src="https://sp.yimg.com/ib/th?id=OPAC.ILPiLXL77WAwHQ474C474&o=5&pid=21.1&w=174&h=174">
+        <h3>Wireless Mouse</h3>
+        <p>2.4GHz USB 1pc</p>
+        <div class="price">₹649</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/6e25ca21-f9cf-4231-b866-4fa49b7f3fcc.jpg">
+        <h3>Portonic Power plate 10</h3>
+        <p>1 pc</p>
+        <div class="price">₹299</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/ik-seo/tr:w-470,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/b2dd55f4-51cd-41ff-a525-18786c1b4513/Nu-Republic-Sonicpop-160-With-20-Hrs-Playtime-52mm-Dual-Drivers-RGB-LED-Lights-16W-Output-Bluetooth-Wireless-Speaker-Black-.jpeg">
+        <h3>Wireless Speaker (Black)</h3>
+        <p>1 pc</p>
+        <div class="price">₹1409</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/ik-seo/tr:w-470,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/c509e71d-4a28-4223-aa49-ac3999d20ac0/Nu-Republic-Epic-X3-in-Ear-TWS-Earbuds-with-Upto-48-hrs-Playtime-X-Bass-Technology-ENC-Mic-Type-C-Fast-Charging-Blue.jpeg">
+        <h3>Nu Republic Epic X3 in Ear TWS Earbuds</h3>
+        <p>1 pair</p>
+        <div class="price">₹549</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/ik-seo/tr:w-470,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/fe955591-5b2c-492e-a06c-a04b7d79a6e4/Eveready-Carbon-Zinc-AAA-Battery.jpeg">
+        <h3>Eveready Carbon Zinc AAA Battery</h3>
+        <p>1pc (4pcs)</p>
+        <div class="price">₹61</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-284-416,pr-true,f-auto,q-80/cms/product_variant/d63ec7ce-b0b0-42b5-8586-f473e48a76c7.jpeg">
+        <h3>Wired earphones with mic</h3>
+        <p>1 pc</p>
+        <div class="price">₹195</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn.zeptonow.com/production/ik-seo/tr:w-470,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/a9fe4042-1fd5-4654-b07e-43473631ce07/Ambrane-Stringz-38-Lite-Wired-Headphones-in-Ear-Earphones-with-in-Line-Mic-for-Clear-Calling-14Mm-Dynamic-Drivers-for-Boostedbass-3-5Mm-Jack-Multi-Functional-Controller-Pink.jpg">
+        <h3>Earphones with in-Line Mic</h3>
+        <p>1 pc</p>
+        <div class="price">₹199</div>
+        <button class="add-btn">ADD</button>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <footer>
+    <div class="left">
+      <h3>Categories</h3>
+      <p>Fruits & Vegetables</p>
+      <p>Dairy, Bread & Eggs</p>
+      <p>Household Cleaning</p>
+      <p>Electronics</p>
+    </div>
+    <div class="right">
+      <h3>Download App</h3>
+      <div class="store-btn">📱 Get it on Play Store</div>
+      <div class="store-btn">🍎 Get it on App Store</div>
+    </div>
+  </footer>
+
 </body>
 </html>
